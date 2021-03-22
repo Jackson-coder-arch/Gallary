@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime as dt
-from .models import Image
+from .models import Image,Location,Category
 
 
 # Create your views here.
@@ -11,7 +11,7 @@ from .models import Image
 def photos(request):
     images = Image.objects.all()
     locations = Location.objects.all()
-    return render(request, 'welcome.html',{'image':images[::1]})
+    return render(request, 'welcome.html',{'image':images[::1],'locations': locations })
 
 def search_image(request):
     title ='search'
