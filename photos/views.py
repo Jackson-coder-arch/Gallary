@@ -34,3 +34,8 @@ def location_filter(request, image_location):
     images = Image.filter_by_location(image_location)
     title = f'{location} Photos'
     return render(request, 'location.html', {'title':title,'images':images,'location':location})
+
+def image_location(request, location):
+    images = Image.filter_by_location(location)
+    print(images)
+    return render(request, 'pictures/location.html', {'location_images': images})
