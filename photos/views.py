@@ -5,25 +5,25 @@ from .models import Image,Location,Category
 
 
 # Create your views here.
-def welcome(request):
-    category = request.GET.get('category')
-    if category == None:
-       photos = Image.objects.all()
+# def welcome(request):
+    # category = request.GET.get('category')
+    # if category == None:
+    #    photos = Image.objects.all()
     
-    else:
-        photos = Image.objects.filter(category__name__contains=category)
+    # else:
+    #     photos = Image.objects.filter(category__name__contains=category)
 
-    categories = Category.objects.all()
-    # photos = Photo.objects.all()
+    # categories = Category.objects.all()
+    # # photos = Photo.objects.all()
 
-    context = {'categories': categories, 'photos': photos}
+    # context = {'categories': categories, 'photos': photos}
     
-    return render(request, 'Welcome.html', context)
+    # return render(request, 'welcome.html')
 
 def photos(request):
     images = Image.objects.all()
     locations = Location.objects.all()
-    return render(request, 'welcome.html',{'image':images[::1],'locations': locations })
+    return render(request, 'welcome.html',{'images':images[::1],'locations': locations })
 
 def search_image(request):
     title ='search'

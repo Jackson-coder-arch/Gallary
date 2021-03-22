@@ -1,0 +1,18 @@
+#bodyimage {
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+img{
+    margin-top: 50px;
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    padding:  6px;
+    float: left;
+    width: 20.9999%;
+    margin: 6px ;
+    cursor: pointer;
+}

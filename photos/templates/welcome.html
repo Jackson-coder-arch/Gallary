@@ -26,32 +26,9 @@
         <hr>
     <body id="bodyimage">
 
-        {% for category in categories %}
-        <li>
-            <a href=" {% url 'image.image' %}?category={{category.name}} "> {{category.name}} </a>
-        </li>
-
-        <p> {{ category.name}} </p>
-        {% endfor %}
-
-
-        {% for images in photos %}
-        <div class="col-md-4">
-            <div class="card">
-                <img src="{{images.photos.url}} " alt="">
-                <small> Category: {{image.category.name}}  </small>
-            </div>
-        </div>
-
-        {% endfor %}
-
-
-
-
-
-
-        <!-- <div class="card-columns">
-    {% for image in photos %}
+    <div class="card-columns">
+    {% for image in images %}
+   
     <div class="poraloid" data-toggle="modal" data-target="#{{image.id}}" >
         <img src="{{image.image.url}}" alt="{{image.name}}" class="card-img" class="img-responsive" width="200px" height="150px">
     </div>
@@ -83,7 +60,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+    </div>
             {% endfor %}
         </div>
     </div>
@@ -91,4 +68,4 @@
 
     
 </body>    
-{% endblock %} -->
+{% endblock %}
