@@ -5,8 +5,20 @@ from .models import Image,Location,Category
 
 
 # Create your views here.
-# def welcome(request):
-#     return render(request, 'Welcome.html')
+def welcome(request):
+    category = request.GET.get('category')
+    if category == None:
+       photos = Image.objects.all()
+    
+    else:
+        photos = Image.objects.filter(category__name__contains=category)
+
+    categories = Category.objects.all()
+    # photos = Photo.objects.all()
+
+    context = {'categories': categories, 'photos': photos}
+    
+    return render(request, 'Welcome.html', context)
 
 def photos(request):
     images = Image.objects.all()
@@ -23,12 +35,13 @@ def search_image(request):
         messge =f"{search_term}"
         print(search_term)
         print(found_results)
-
-        return render(request, 'search.html',{'title':title,'images':found_results, 'message':message, 'categories':categories, 'locations':locations})
     else:
         message = 'No searches found yet'
         return render (request, 'search.html',{"message":message})
 
+
+    return render(request, 'search.html',{'title':title,'images':found_results, 'message':message, 'categories':categories, 'locations':locations})
+    
 def location_filter(request, image_location):
     location = Location.get_location_id(image_location)
     images = Image.filter_by_location(image_location)
@@ -38,4 +51,4 @@ def location_filter(request, image_location):
 def image_location(request, location):
     images = Image.filter_by_location(location)
     print(images)
-    return render(request, 'pictures/location.html', {'location_images': images})
+    return render(request, 'images/location.html', {'location_images': images})
