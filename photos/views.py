@@ -27,7 +27,7 @@ def search_image(request):
         return render(request, 'search.html',{'title':title,'images':found_results, 'message':message, 'categories':categories, 'locations':locations})
     else:
         message = 'No searches found yet'
-        return render (request, 'search.html',{"message":message}
+        return render (request, 'search.html',{"message":message})
 
 def location_filter(request, image_location):
     location = Location.get_location_id(image_location)
