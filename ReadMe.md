@@ -16,4 +16,4 @@
  Reach us out through our email that is: gallery@gmail.com
  
  ## Copyright and Licence
- Copyright (c) 2020 Jackson-coder-arch
+ Copyright (c) 2020 Jackson Ikonya
